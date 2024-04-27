@@ -2,8 +2,8 @@
 let connectionManager = {getConnection: () => {}, clearDatabase: () => {}, closeConnection: () => {}};
 
 // Uncomment the code below to use Sequelize ORM
-// const SequelizeConnection = require('./lib/sequelize.connection');
-// connectionManager = new SequelizeConnection();
+const SequelizeConnection = require('./lib/sequelize.connection');
+connectionManager = new SequelizeConnection();
 
 
 // Uncomment the code below to use Mongoose ORM

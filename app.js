@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const connectionManager = require('./connection')
+const errorHandler = require('./lib/error-handler')
 const indexRouter = require('./routes/index');
 const tradesRouter = require('./routes/trades');
 
@@ -20,5 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/trades', tradesRouter);
 app.use('/', indexRouter);
+
+app.use(errorHandler.serverError)
 
 module.exports = app;
